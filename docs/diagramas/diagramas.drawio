@@ -1,0 +1,76 @@
+<mxfile host="Electron">
+  <diagram name="Página-1" id="qVtIl5S-07-odjc2Hzjd">
+    <mxGraphModel dx="1684" dy="1016" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="1ftsTFzJdNQ7BeJwsYdc-31" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="420" width="680" x="60" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="1ftsTFzJdNQ7BeJwsYdc-30" parent="1ftsTFzJdNQ7BeJwsYdc-31" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="420" width="680" as="geometry" />
+        </mxCell>
+        <mxCell id="1ftsTFzJdNQ7BeJwsYdc-1" parent="1ftsTFzJdNQ7BeJwsYdc-31" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=1;fontFamily=Comic Sans MS;fontStyle=1;fontSize=14;roundedPerimeter=1;sketch=1;curveFitting=1;jiggle=2;" value="DÓNDE OCURRE" vertex="1">
+          <mxGeometry height="40" width="200" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="1ftsTFzJdNQ7BeJwsYdc-2" parent="1ftsTFzJdNQ7BeJwsYdc-31" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=1;fontFamily=Comic Sans MS;fontStyle=1;fontSize=14;roundedPerimeter=1;sketch=1;curveFitting=1;jiggle=2;" value="DÓNDE SE GUARDA" vertex="1">
+          <mxGeometry height="40" width="220" x="215" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="1ftsTFzJdNQ7BeJwsYdc-3" parent="1ftsTFzJdNQ7BeJwsYdc-31" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=1;fontFamily=Comic Sans MS;fontStyle=1;fontSize=14;roundedPerimeter=1;sketch=1;curveFitting=1;jiggle=2;" value="DÓNDE SE MIRA" vertex="1">
+          <mxGeometry height="40" width="220" x="460" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="1ftsTFzJdNQ7BeJwsYdc-24" edge="1" parent="1ftsTFzJdNQ7BeJwsYdc-31" source="1ftsTFzJdNQ7BeJwsYdc-4" style="rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;defaultLabelBackgroundColor=page;" target="1ftsTFzJdNQ7BeJwsYdc-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1ftsTFzJdNQ7BeJwsYdc-4" parent="1ftsTFzJdNQ7BeJwsYdc-31" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fontFamily=Comic Sans MS;fontSize=12;rounded=1;roundedPerimeter=1;sketch=1;curveFitting=1;jiggle=2;" value="Shopify Plus" vertex="1">
+          <mxGeometry height="80" width="60" x="60" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="1ftsTFzJdNQ7BeJwsYdc-5" parent="1ftsTFzJdNQ7BeJwsYdc-31" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fontFamily=Comic Sans MS;fontSize=12;rounded=1;roundedPerimeter=1;sketch=1;curveFitting=1;jiggle=2;" value="Google Analytics 4" vertex="1">
+          <mxGeometry height="80" width="75" x="52.5" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="1ftsTFzJdNQ7BeJwsYdc-26" edge="1" parent="1ftsTFzJdNQ7BeJwsYdc-31" source="1ftsTFzJdNQ7BeJwsYdc-6" style="rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;defaultLabelBackgroundColor=page;" target="1ftsTFzJdNQ7BeJwsYdc-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1ftsTFzJdNQ7BeJwsYdc-27" edge="1" parent="1ftsTFzJdNQ7BeJwsYdc-31" source="1ftsTFzJdNQ7BeJwsYdc-6" style="rounded=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=-7.5;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;defaultLabelBackgroundColor=page;curved=0;" target="1ftsTFzJdNQ7BeJwsYdc-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1ftsTFzJdNQ7BeJwsYdc-6" parent="1ftsTFzJdNQ7BeJwsYdc-31" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fontFamily=Comic Sans MS;fontSize=12;rounded=1;roundedPerimeter=1;sketch=1;curveFitting=1;jiggle=2;" value="PostgreSQL" vertex="1">
+          <mxGeometry height="90" width="75" x="287.5" y="75" as="geometry" />
+        </mxCell>
+        <mxCell id="1ftsTFzJdNQ7BeJwsYdc-7" parent="1ftsTFzJdNQ7BeJwsYdc-31" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;fontSize=12;roundedPerimeter=1;sketch=1;curveFitting=1;jiggle=2;" value="Power BI" vertex="1">
+          <mxGeometry height="40" width="120" x="520" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="1ftsTFzJdNQ7BeJwsYdc-8" parent="1ftsTFzJdNQ7BeJwsYdc-31" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;fontSize=12;roundedPerimeter=1;sketch=1;curveFitting=1;jiggle=2;" value="Python + Seaborn" vertex="1">
+          <mxGeometry height="40" width="120" x="520" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="1ftsTFzJdNQ7BeJwsYdc-14" parent="1ftsTFzJdNQ7BeJwsYdc-31" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=1;fontFamily=Comic Sans MS;fontStyle=0;fontSize=10;roundedPerimeter=1;sketch=1;curveFitting=1;jiggle=2;" value="La tienda y el pago" vertex="1">
+          <mxGeometry height="30" width="130" x="25" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="1ftsTFzJdNQ7BeJwsYdc-15" parent="1ftsTFzJdNQ7BeJwsYdc-31" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=1;fontFamily=Comic Sans MS;fontStyle=0;fontSize=10;roundedPerimeter=1;sketch=1;curveFitting=1;jiggle=2;" value="Las visitas a la web" vertex="1">
+          <mxGeometry height="30" width="130" x="25" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="1ftsTFzJdNQ7BeJwsYdc-16" parent="1ftsTFzJdNQ7BeJwsYdc-31" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=1;fontFamily=Comic Sans MS;fontStyle=0;fontSize=10;roundedPerimeter=1;sketch=1;curveFitting=1;jiggle=2;" value="Pedidos, productos, clientes" vertex="1">
+          <mxGeometry height="30" width="130" x="260" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="1ftsTFzJdNQ7BeJwsYdc-17" parent="1ftsTFzJdNQ7BeJwsYdc-31" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=1;fontFamily=Comic Sans MS;fontStyle=0;fontSize=10;roundedPerimeter=1;sketch=1;curveFitting=1;jiggle=2;" value="Paneles de Dirección" vertex="1">
+          <mxGeometry height="30" width="130" x="515" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="1ftsTFzJdNQ7BeJwsYdc-18" parent="1ftsTFzJdNQ7BeJwsYdc-31" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=1;fontFamily=Comic Sans MS;fontStyle=0;fontSize=10;roundedPerimeter=1;sketch=1;curveFitting=1;jiggle=2;" value="Exploración" vertex="1">
+          <mxGeometry height="30" width="130" x="515" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="1ftsTFzJdNQ7BeJwsYdc-21" parent="1ftsTFzJdNQ7BeJwsYdc-31" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;fontSize=12;roundedPerimeter=1;sketch=1;curveFitting=1;jiggle=2;" value="Google Sheets" vertex="1">
+          <mxGeometry height="40" width="352.5" x="287.5" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="1ftsTFzJdNQ7BeJwsYdc-23" parent="1ftsTFzJdNQ7BeJwsYdc-31" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=1;fontFamily=Comic Sans MS;fontStyle=0;fontSize=10;roundedPerimeter=1;sketch=1;curveFitting=1;jiggle=2;" value="Lo que Marketing sigue usando a mano para todo" vertex="1">
+          <mxGeometry height="30" width="265" x="320" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="1ftsTFzJdNQ7BeJwsYdc-25" edge="1" parent="1ftsTFzJdNQ7BeJwsYdc-31" source="1ftsTFzJdNQ7BeJwsYdc-5" style="rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.75;entryDx=0;entryDy=-7.5;entryPerimeter=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;defaultLabelBackgroundColor=page;" target="1ftsTFzJdNQ7BeJwsYdc-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1ftsTFzJdNQ7BeJwsYdc-28" parent="1ftsTFzJdNQ7BeJwsYdc-31" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=1;fontFamily=Comic Sans MS;fontStyle=0;fontSize=12;roundedPerimeter=1;sketch=1;curveFitting=1;jiggle=2;" value="El dato NACE en la tienda y la web, se GUARDA en la base de datos, y se MIRA en Power BI o rn Python" vertex="1">
+          <mxGeometry height="60" width="655" y="350" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
