@@ -1,0 +1,25 @@
+# Variables de entorno (credenciales de bases de datos)
+.env
+.env.local
+
+# Datos locales (no van en Git: pesan y cambian)
+*.csv
+*.xlsx
+*.parquet
+datos/*
+!datos/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Notebooks: los checkpoints son cache, no codigo
+.ipynb_checkpoints/
+
+# IDE y sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
