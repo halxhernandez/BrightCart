@@ -1,28 +1,76 @@
-# Diccionario de Datos — Proyecto BrightCart
+# Documentación Técnica — Proyecto BrightCart
+
+Bienvenido a la documentación central del proyecto. Aquí encontrarás la arquitectura de los datos, el modelo relacional y el diccionario detallado de cada tabla y campo del sistema.
 
 **Última actualización:** 2026-12-12
 **Responsable:** Alejandro Hernández Rodríguez
 **Base de datos origen:** PostgreSQL (brightcart_db)
 
-## 1. Convenciones Globales
-Para garantizar la consistencia en los análisis (Python, Power BI, etc.), todo el modelo de datos sigue estas reglas:
-- **Fechas:** Todas las fechas del sistema deben tratarse en formato ISO `YYYY-MM-DD` y zona horaria **UTC**.
-- **Moneda:** Todos los importes económicos están expresados en **Euros (EUR)**.
-- **Decimales:** Los campos monetarios deben ser de tipo `float`/`decimal` puro (sin símbolos como `€` ni separadores de miles, ej. `61000.0`).
-- **Nulos (`NaN`):** Un valor nulo indica ausencia de información en el origen, no un error del sistema.
+---
 
-## 2. Relaciones Principales (Foreign Keys)
+## Índice
+1. [Arquitectura y Linaje de Datos](#1-arquitectura-y-linaje-de-datos)
+2. [Modelo Relacional](#2-modelo-relacional)
+3. [Diccionario de Datos](#3-diccionario-de-datos)
+4. [Glosario Global de Negocio](#4-glosario-global-de-negocio)
+
+---
+
+## 1. Arquitectura y Linaje de Datos
+
+El siguiente diagrama muestra el flujo de los datos: dónde nacen, dónde se almacenan y dónde se consumen.
+
+![Diagrama de Linaje de Datos](./diagramas/linaje_datos.svg)
+
+**Descripción del flujo:**
+- **Dónde ocurre (Origen):** La interacción del usuario se captura en Shopify Plus (tienda/pagos) y Google Analytics 4 (visitas web).
+- **Dónde se guarda (Almacenamiento):** Los datos se centralizan y consolidan en una base de datos PostgreSQL (pedidos, productos, clientes).
+- **Dónde se mira (Consumo):**
+  - *Power BI:* Para paneles de dirección (KPIs de negocio).
+  - *Python + Seaborn:* Para análisis exploratorio y validación.
+  - *Google Sheets:* Uso manual residual por parte de Marketing.
+
+*Herramienta de creación:* Boceto conceptual creado en *draw.io* (estilo hand-drawn) exportado a SVG.
+
+---
+
+## 2. Modelo Relacional
+
+El siguiente diagrama muestra la estructura de la base de datos (Modelo Entidad-Relación), detallando las claves primarias (PK), claves foráneas (FK) y los tipos de datos de cada campo.
+
+![Modelo Relacional E-Commerce](./diagramas/modelo_relacional.svg)
+
+### Descripción General del Modelo
+El modelo está diseñado bajo un esquema relacional clásico para e-commerce, dividiendo la información en:
+1. **Tablas Maestras (Dimensiones):** `clientes`, `productos` y `campanas`. Contienen la información descriptiva y única de cada entidad.
+2. **Tablas Transaccionales (Hechos):** `pedidos`, `lineas_pedido` y `devoluciones`. Registran los eventos de compra y post-venta.
+3. **Tabla de Analítica Web:** `visitas_web`. Es una tabla independiente (sin FKs) que almacena agregaciones diarias por canal provenientes de Google Analytics 4.
+
+### Relaciones Principales (Foreign Keys)
 - `pedidos.cliente_id`  ➔  `clientes.cliente_id`
 - `pedidos.campana_id`  ➔  `campanas.campana_id`
 - `lineas_pedido.pedido_id`  ➔  `pedidos.pedido_id`
 - `lineas_pedido.producto_id`  ➔  `productos.producto_id`
 - `devoluciones.linea_id`  ➔  `lineas_pedido.linea_id`
 
+### Notas del Modelo
+- **Tabla `visitas_web`:** Al no tener claves foráneas, se cruza con el resto del modelo mediante la columna `fecha` y `canal` (cruce lógico, no físico), permitiendo comparar el tráfico web con las ventas reales.
+- **Tabla `devoluciones`:** Depende directamente de `lineas_pedido` y no de `pedidos`. Esto es una excelente práctica de diseño porque permite rastrear devoluciones parciales (ej. en un pedido de 3 camisetas, el cliente solo devuelve 1).
+
 ---
 
-## 3. Tablas del Modelo
+## 3. Diccionario de Datos
 
-### Tabla: `campanas`
+### 3.1 Convenciones Globales
+Para garantizar la consistencia en los análisis (Python, Power BI, etc.), todo el modelo de datos sigue estas reglas:
+- **Fechas:** Todas las fechas del sistema deben tratarse en formato ISO `YYYY-MM-DD` y zona horaria **UTC**.
+- **Moneda:** Todos los importes económicos están expresados en **Euros (EUR)**.
+- **Decimales:** Los campos monetarios deben ser de tipo `float`/`decimal` puro (sin símbolos como `€` ni separadores de miles, ej. `61000.0`).
+- **Nulos (`NaN`):** Un valor nulo indica ausencia de información en el origen, no un error del sistema.
+
+### 3.2 Tablas del Modelo
+
+#### Tabla: `campanas`
 **Origen:** Google Sheets (Marketing) → PostgreSQL
 
 | Campo | Tipo | Descripción | Valores / Reglas | Nulo | Origen |
@@ -39,9 +87,7 @@ Para garantizar la consistencia en los análisis (Python, Power BI, etc.), todo 
 **Notas de Calidad (`campanas`):**
 - **Inconsistencia en origen:** Al introducirse manualmente desde Google Sheets, se detectan valores de texto en `presupuesto` (ej. `"61.000 €"`).
 
----
-
-### Tabla: `clientes`
+#### Tabla: `clientes`
 **Origen:** Shopify Plus → PostgreSQL
 
 | Campo | Tipo | Descripción | Valores / Reglas | Nulo | Origen |
@@ -56,9 +102,7 @@ Para garantizar la consistencia en los análisis (Python, Power BI, etc.), todo 
 - **Inconsistencia en `genero`:** Mezcla de formatos (`F`, `M`, `f`, `Femenino`, `Masculino`).
 - **Inconsistencia en `ciudad`:** Mezcla de mayúsculas y minúsculas (`bilbao`, `Bilbao`).
 
----
-
-### Tabla: `devoluciones`
+#### Tabla: `devoluciones`
 **Origen:** Shopify Plus → PostgreSQL
 
 | Campo | Tipo | Descripción | Valores / Reglas | Nulo | Origen |
@@ -73,9 +117,7 @@ Para garantizar la consistencia en los análisis (Python, Power BI, etc.), todo 
 - **Inconsistencia en `fecha_devolucion`:** Mezcla formatos `DD/MM/YYYY` y `YYYY-MM-DD`.
 - **Inconsistencia en `talla`:** Mezcla mayúsculas/minúsculas (`XL`, `m`, `S`) y prefijos de texto (`Talla 37`).
 
----
-
-### Tabla: `lineas_pedido`
+#### Tabla: `lineas_pedido`
 **Origen:** Shopify Plus → PostgreSQL
 
 | Campo | Tipo | Descripción | Valores / Reglas | Nulo | Origen |
@@ -92,9 +134,7 @@ Para garantizar la consistencia en los análisis (Python, Power BI, etc.), todo 
 - **Inconsistencia en `precio_unitario`:** Mezcla valores numéricos con strings (`"63,83 €"`).
 - **Inconsistencia en `descuento_pct`:** Mezcla porcentajes como texto (`"30%"`, `"0%"`) con decimales (`0.3`, `0.0`).
 
----
-
-### Tabla: `pedidos`
+#### Tabla: `pedidos`
 **Origen:** Shopify Plus → PostgreSQL
 
 | Campo | Tipo | Descripción | Valores / Reglas | Nulo | Origen |
@@ -102,7 +142,7 @@ Para garantizar la consistencia en los análisis (Python, Power BI, etc.), todo 
 | `pedido_id` | integer | Identificador único de la cabecera del pedido. | Clave primaria. | No | Shopify Plus |
 | `cliente_id` | integer | FK al cliente que realizó el pedido. | Clave foránea. | No | Shopify Plus |
 | `fecha_pedido` | date | Fecha de realización del pedido. | Formato `YYYY-MM-DD`. | No | Shopify Plus |
-| `campana_id` | float | FK a la campaña de marketing (si aplica). | Clave foránea. | Sí | Shopify Plus |
+| `campana_id` | integer | FK a la campaña de marketing (si aplica). | Clave foránea. | Sí | Shopify Plus |
 | `canal` | string | Canal de adquisición del pedido. | `directo`, `instagram`, `email`, `google` | No | Shopify Plus |
 | `ciudad` | string | Ciudad de envío del pedido. | Texto en formato Título (ej. Oporto, Lisboa). | Sí | Shopify Plus |
 | `metodo_pago` | string | Forma de pago utilizada. | `tarjeta`, `bizum`, `paypal` | No | Shopify Plus |
@@ -111,9 +151,7 @@ Para garantizar la consistencia en los análisis (Python, Power BI, etc.), todo 
 - **Inconsistencia en `fecha_pedido`:** Mezcla formatos `DD/MM/YYYY` y `YYYY-MM-DD`.
 - **Nulos en `campana_id`:** El valor nulo es correcto e indica ventas orgánicas o directas no asociadas a campañas.
 
----
-
-### Tabla: `productos`
+#### Tabla: `productos`
 **Origen:** Shopify Plus → PostgreSQL
 
 | Campo | Tipo | Descripción | Valores / Reglas | Nulo | Origen |
@@ -130,9 +168,7 @@ Para garantizar la consistencia en los análisis (Python, Power BI, etc.), todo 
 - **Inconsistencia en `categoria`:** Mezcla mayúsculas/minúsculas y singular/plural (`Vestidos`, `VESTIDOS`, `vestido`).
 - **Inconsistencia en `temporada`:** Múltiples formatos (`Verano24`, `verano`, `verano 2024`, `SS24`).
 
----
-
-### Tabla: `visitas_web`
+#### Tabla: `visitas_web`
 **Origen:** Google Analytics 4 (GA4) → PostgreSQL
 
 | Campo | Tipo | Descripción | Valores / Reglas | Nulo | Origen |
