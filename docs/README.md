@@ -13,6 +13,7 @@ Bienvenido a la documentación central del proyecto. Aquí encontrarás la arqui
 2. [Modelo Relacional](#2-modelo-relacional)
 3. [Diccionario de Datos](#3-diccionario-de-datos)
 4. [Glosario Global de Negocio](#4-glosario-global-de-negocio)
+5. [Reporte de Calidad y Limpieza de Datos](./calidad_datos.md)
 
 ---
 
