@@ -8,7 +8,7 @@ Este directorio está destinado a almacenar los conjuntos de datos originales e 
 
 Los datos provienen de la base de datos central **PostgreSQL** (alimentada por **Shopify Plus** y **Google Analytics 4**) y de una hoja de cálculo operativa de Marketing (**Google Sheets**).
 
-* Para ver el diagrama completo del flujo y linaje, consulta: [`docs/arquitectura.md`](../../docs/arquitectura.md).
+* Para ver el diagrama completo del flujo y linaje, consulta: [`docs/arquitectura.md`](../../docs/arquitectura_datos.md).
 
 ## Archivos Locales Esperado
 
@@ -17,7 +17,7 @@ Para ejecutar el entorno localmente, exporta o solicita los siguientes cortes y 
 Archivo esperado | Tabla / Fuente origen | Descripción |
 | :--- | :--- | :--- |
 | `pedidos.csv` | PostgreSQL (`orders`) | Cabecera de órdenes, fechas, clientes y totales. |
-| `lineas_pedidos.csv` | PostgreSQL (`order_items`) | Detalle de productos, cantidades y precios por pedido. |
+| `lineas_pedido.csv` | PostgreSQL (`order_items`) | Detalle de productos, cantidades y precios por pedido. |
 | `devoluciones.csv` | PostgreSQL (`returns`) | Registro de reembolsos, cancelaciones y motivos. |
 | `clientes.csv` | PostgreSQL (`customers`) | Catálogo de clientes y datos demográficos. |
 | `productos.csv` | PostgreSQL (`products`) | Maestro de productos, precios y categorías. |
