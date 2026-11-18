@@ -1,0 +1,27 @@
+[project]
+name = "brightcart"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Alejandro Hernandez", email = "halxhernandez@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "ipykernel>=7.4.0",
+    "matplotlib>=3.11.2",
+    "numpy>=2.4.6",
+    "pandas>=3.1.1",
+    "pip>=26.3",
+    "seaborn>=0.13.2",
+]
+
+[project.scripts]
+brightcart = "brightcart:main"
+
+[build-system]
+requires = ["uv_build>=0.13.8,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = []
