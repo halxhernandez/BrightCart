@@ -1,0 +1,43 @@
+# ==============================================================================
+# 1. SEGURIDAD Y CREDENCIALES
+# ==============================================================================
+.env
+.env.*
+!.env.example
+
+
+# ==============================================================================
+# 2. DATOS LOCALES Y DOCUMENTACIÓN
+# ==============================================================================
+# Ignorar datasets crudos y procesados (pesados o confidenciales)
+datos/**
+
+# Conservar estructura de carpetas y documentación
+!datos/**/
+!datos/**/*.gitkeep
+!datos/raw/README.md
+
+
+# ==============================================================================
+# 3. ENTORNO PYTHON Y JUPYTER NOTEBOOKS
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Caché y checkpoints de Jupyter
+.ipynb_checkpoints/
+
+
+# ==============================================================================
+# 4. EDITORES (IDE) Y SISTEMA OPERATIVO
+# ==============================================================================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
