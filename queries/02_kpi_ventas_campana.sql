@@ -9,9 +9,22 @@
 USE BrightCartDB;
 
 /* ----------------------------------------------------------------------------
-   1. KPIs generales por rango de fechas (2024-07-01 al 2024-07-07)
+   1. KPIs generales por rango de fechas
    ---------------------------------------------------------------------------- */
-SELECT
+
+SELECT     -- KPIs generales sin considerar la campaña
+    'No'                                            AS con_campaña,
+    COUNT(DISTINCT lp.pedido_id)                    AS pedidos,            -- Total de pedidos únicos
+    COUNT(DISTINCT p.cliente_id)                    AS clientes_distintos, -- Clientes únicos con compra
+    SUM(lp.cantidad)                                AS unidades,           -- Total de artículos vendidos
+    ROUND(SUM(lp.cantidad * lp.precio_unitario
+            * (1 - lp.descuento_pct)), 2)           AS ingresos
+FROM lineas_pedido AS lp
+JOIN pedidos AS p ON lp.pedido_id = p.pedido_id
+WHERE p.fecha_pedido BETWEEN DATE '2024-06-24' AND DATE '2024-06-30'
+UNION ALL
+SELECT      -- KPIs generales al considerar la campaña
+    'Si'                                            AS con_camapaña,
     COUNT(DISTINCT lp.pedido_id)                    AS pedidos,            -- Total de pedidos únicos
     COUNT(DISTINCT p.cliente_id)                    AS clientes_distintos, -- Clientes únicos con compra
     SUM(lp.cantidad)                                AS unidades,           -- Total de artículos vendidos
