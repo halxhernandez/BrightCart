@@ -141,7 +141,20 @@ def main():
     # ============================================================
     print("Limpiando productos…")
 
+    map_categorias = {
+        "Vestido": "Vestidos",
+        "Camiseta": "Camisetas",
+        "Pantalon": "Pantalones",
+        "Falda": "Faldas",
+        "Accesorio": "Accesorios",
+        "Jersey": "Jerseis",
+        "Abrigo": "Abrigos",
+        "Zapatos": "Calzado",
+        "Jerséis": "Jerseis",
+    }
+
     productos["categoria"] = normalize_category(productos["categoria"])
+    productos["categoria"] = productos["categoria"].replace(map_categorias)
     productos["temporada"] = normalize_season(productos["temporada"])
     log_change("productos", "PRO1+PRO2", "categoría y temporada normalizadas",
                len(productos), len(productos), len(productos))
